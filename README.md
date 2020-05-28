@@ -1,4 +1,11 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1>Drinkster</h1>
+
+**features**
+
+- [x] recoil
+- [ ] local Storage
+- [ ] react hooks
+- [ ] framer motion
 
 ## Available Scripts
 
