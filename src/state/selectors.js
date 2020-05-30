@@ -1,7 +1,12 @@
 import { selector } from 'recoil';
 import { currentCategoryState } from './atom';
 
-import { getCategories, getRecipesByCategory } from '../services/recipes';
+import { getRandomRecipe, getCategories, getRecipesByCategory } from '../services/recipes';
+
+export const randomRecipeSelector = selector({
+  key: 'randomRecipeSelector',
+  get: () => getRandomRecipe().then((rs) => rs),
+});
 
 export const categoriesSelector = selector({
   key: 'categoriesSelector',

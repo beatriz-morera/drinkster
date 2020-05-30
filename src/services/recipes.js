@@ -1,5 +1,10 @@
 const BASE_URL = 'https://www.thecocktaildb.com/api/json/v1/1';
 
+export async function getRandomRecipe() {
+  const data = await fetch(`${BASE_URL}/random.php`).then((rs) => rs.json());
+  return data.drinks;
+}
+
 export async function getCategories() {
   const data = await fetch(`${BASE_URL}/list.php?c=list`).then((rs) => rs.json());
   return data.drinks;

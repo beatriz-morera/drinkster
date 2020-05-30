@@ -1,28 +1,22 @@
 import React from 'react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 
-import { categoriesSelector } from '../state/selectors';
-import { currentCategoryState } from '../state/atom';
+import { randomRecipeSelector, categoriesSelector } from '../state/selectors';
 
+import Hero from '../components/hero';
+import Categories from '../components/categories';
 import Recipes from '../components/recipes';
 
-import classes from './search.module.css';
+import classes from './search.module.scss';
 
 export default () => {
-  const setCurrentCategory = useSetRecoilState(currentCategoryState);
   const categories = useRecoilValue(categoriesSelector);
+  const [randomRecipe] = useRecoilValue(randomRecipeSelector);
 
   return (
     <main className={classes.container}>
-      <h1>Choose a Category</h1>
-      <ul>
-        {categories &&
-          categories.map((c) => (
-            <li key={c.strCategory} onClick={() => setCurrentCategory(c.strCategory)}>
-              {c.strCategory}
-            </li>
-          ))}
-      </ul>
+      <Hero featured={randomRecipe} />
+      <Categories categories={categories} />
       <Recipes />
     </main>
   );

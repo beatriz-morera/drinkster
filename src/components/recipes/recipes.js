@@ -1,8 +1,8 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
-import { currentCategoryRecipesSelector } from '../state/selectors';
+import { currentCategoryRecipesSelector } from '../../state/selectors';
 
-import classes from './recipes.module.css';
+import classes from './recipes.module.scss';
 
 export default () => {
   const recipes = useRecoilValue(currentCategoryRecipesSelector);
